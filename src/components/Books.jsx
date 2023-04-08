@@ -1,11 +1,17 @@
 import React from "react";
+import { useLoaderData } from "react-router-dom";
+import Book from "./Book";
 
 const Books = () => {
+  // const booksData = useLoaderData();
+  const { books } = useLoaderData();
   return (
-    <div>
-      <h1 className="text-3xl font-bold text-center">
-        books site coming soon...
-      </h1>
+    <div className="my-container ">
+      <div className="grid gap-6 mb-8 lg:grid-cols-4 sm:grid-cols-2">
+        {books.map((book) => (
+          <Book key={book.isbn13} book={book} />
+        ))}
+      </div>
     </div>
   );
 };
